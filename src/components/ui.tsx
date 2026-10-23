@@ -4,11 +4,17 @@ import type { ReactNode } from "react";
 import { Icon, StarIcon, type IconName } from "./icons";
 import { TONE_CLASSES, type Tone } from "@/lib/labels";
 
-export function Logo({ size = 30, href = "/", light = true }: { size?: number; href?: string | null; light?: boolean }) {
+export function Logo({ size = 30, href = "/", light = true, mark = true }: { size?: number; href?: string | null; light?: boolean; mark?: boolean }) {
   const inner = (
-    <span className="flex items-baseline gap-1.5 font-serif font-semibold leading-none" style={{ fontSize: size }}>
+    <span className="flex items-center gap-2.5 font-serif font-semibold leading-none" style={{ fontSize: size }}>
+      {mark && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src="/logo.svg" alt="" width={Math.round(size * 1.15)} height={Math.round(size * 1.15)} className="flex-none rounded-[22%]" />
+      )}
+      <span className="flex items-baseline gap-1.5">
       <span className={light ? "text-ivory" : "text-text"}>Burkina</span>
       <span className="gold-text">Or</span>
+      </span>
     </span>
   );
   if (!href) return inner;

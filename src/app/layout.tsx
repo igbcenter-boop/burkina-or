@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { PwaInstall } from "@/components/pwa";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -29,6 +30,10 @@ export const metadata: Metadata = {
   },
   description:
     "Lingotins certifiés dès 1 gramme, bijoux des meilleurs artisans du Burkina, comptoirs vérifiés et livraison sécurisée. La place de marché de l'or au Burkina Faso et en Afrique de l'Ouest.",
+  applicationName: "Burkina Or",
+  appleWebApp: { capable: true, title: "Burkina Or", statusBarStyle: "black-translucent" },
+  formatDetection: { telephone: false },
+  openGraph: { type: "website", locale: "fr_FR", siteName: "Burkina Or", images: [{ url: "/icons/icon-512.png", width: 512, height: 512 }] },
 };
 
 export const viewport: Viewport = {
@@ -38,7 +43,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable} ${jetbrains.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <PwaInstall />
+      </body>
     </html>
   );
 }

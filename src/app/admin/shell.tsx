@@ -119,7 +119,9 @@ export function AdminShell({
       >
         <div className="flex items-center justify-between px-[22px] pb-[18px] pt-[22px]">
           <Link href="/admin" className="block">
-            <div className="flex items-baseline gap-1.5 font-serif text-[26px] font-semibold leading-none">
+            <div className="flex items-center gap-2.5 font-serif text-[26px] font-semibold leading-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.svg" alt="" width={30} height={30} className="rounded-[22%]" />
               <span className="text-ivory">Burkina</span>
               <span className="gold-text">Or</span>
             </div>
